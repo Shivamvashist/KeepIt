@@ -31,11 +31,11 @@ const userSchema = new Schema<IUserDocument>({
     }
 })
 
-const userModel = mongoose.model<IUserDocument>("User",userSchema)
+const userModel = mongoose.model<IUserDocument>("users",userSchema)
 
 export default userModel;
 
 // module.exports {
-//     userModel
+//     userModel:userModel
 // }
 
