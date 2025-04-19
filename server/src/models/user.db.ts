@@ -1,5 +1,5 @@
 import mongoose, { Schema, ObjectId, Document } from "mongoose";
-import {IUser} from '../types/user.interface'
+import {IUser} from "../types/user.interface"; //Dont use @types
 
 export interface IUserDocument extends IUser,Document{};
 
