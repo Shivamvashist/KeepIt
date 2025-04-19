@@ -13,12 +13,6 @@ app.use(express.json());
 
 app.use('/api/v1/userAuth',userAuthRouter);
 
-
-app.get('/',function(req:Request,res:Response){
-    const a = req.query.n;
-    res.send(a);
-})
-
 const PORT = process.env.PORT
 const dbUser = process.env.DB_USER
 const dbPass = process.env.DB_PASS
