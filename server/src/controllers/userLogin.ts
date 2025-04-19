@@ -1,5 +1,5 @@
 import express,{ Request,Response } from "express";
-import userModel from '../models/user.db';
+import userModel from '@models/user.db';
 
 export async function userLogin( req:Request, res:Response ){
     const username = req.body.username;
