@@ -17,6 +17,7 @@ const userSchema = new Schema<IUserDocument>({
     },
     username:{
         type: String,
+        unique:true,
         required: true,
         lowecase: true
     },
@@ -31,7 +32,7 @@ const userSchema = new Schema<IUserDocument>({
     }
 })
 
-const userModel = mongoose.model<IUserDocument>("users",userSchema)
+const userModel = mongoose.model<IUserDocument>("User",userSchema)
 
 export default userModel;
 

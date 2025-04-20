@@ -1,9 +1,10 @@
 import { Request,Response } from "express";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET_USER } from '../config/jwt.config';
-import userModel from '../models/user.db';
-import { requiredData,SigninBody } from "../utils/signin.zodSchema";
+
+import { JWT_SECRET_USER } from '../../config/jwt.config';
+import userModel from '../../models/user.db';
+import { requiredData,SigninBody } from "../../utils/signin.zodSchema";
 
 
 export async function userLogin( req:Request<{},{},SigninBody>, res:Response ){
@@ -35,8 +36,10 @@ export async function userLogin( req:Request<{},{},SigninBody>, res:Response ){
             return res.status(401).json("Incorrect Password!")
         }
         if(verifyPass){
-            const token = jwt.sign({username:findUser.username},JWT_SECRET_USER);
-            return res.status(200).cookie("token",token,{maxAge:3600000}).json({msg:"Successfully Signed in!"});
+            const token = jwt.sign({username:findUser.username,userId:findUser._id},JWT_SECRET_USER);
+            return res.status(200)
+            .cookie("token",token,{maxAge:3600000})
+            .json({msg:"Successfully Signed in!"});
         }
 
     } catch (error) {

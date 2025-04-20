@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import bcrypt from 'bcrypt';
 
-import userModel from '../models/user.db';
-import {requiredBody,SignupBody} from '../utils/signup.zodSchema';
+import userModel from '../../models/user.db';
+import {requiredBody,SignupBody} from '../../utils/signup.zodSchema';
 
 // Use Request<Params = {}, ResBody = {}, ReqBody = SignupBody> to strictly type req.body using your Zod-inferred type,
 // while keeping route params and response body untyped (empty objects).
@@ -45,7 +45,7 @@ export async function userSignup(req:Request<{},{},SignupBody>,res:Response){
     } catch (error:any) {
         if (error.code === 11000) {
           // Duplicate key error - 11000
-          return res.status(400).json("Email already exists!");
+          return res.status(400).json(`${Object.keys(error.keyPattern)} already exists!`);
         }
       
         // Some other DB/server error
