@@ -6,13 +6,14 @@ export enum stashTypes{
     Tweet = 'tweet',
     Video = 'video',
     Doc = 'document',
-    Shorts = 'short videos'
+    Shorts = 'short-videos'
 
 }
 
 export interface IStash{
     userId:Types.ObjectId,
     title:string,
+    link:URL,
     content:string,
     type:stashTypes,
     tag?:string[]

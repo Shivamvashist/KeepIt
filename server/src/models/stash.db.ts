@@ -13,6 +13,9 @@ const stashSchema = new Schema<IStashDocument>({
         type:String,
         required:true,
     },
+    link:{
+        type:URL,
+    },
     content:{
         type:String,
         required:true,
