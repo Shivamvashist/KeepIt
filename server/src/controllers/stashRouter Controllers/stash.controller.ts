@@ -26,15 +26,23 @@ export async function createStash(req:Request<{},{},stashBody>,res:Response){
 
     const newStash = new stashModel({
         ...validatedStash.data,
-        user: userId,
+        userId: userId,
     });
 
     await newStash.save();
 
     return res.status(200).json({msg: 'Stash crearted Successfully', data: newStash})
         
-    } catch (error) {
-        return res.status(500).json({msg:'server side error',error:error})
+    } 
+    catch (error: any) {
+        return res.status(500).json({msg:'server side error',error:error.message})
     }
-
+    // catch (error: any) {
+    //     console.error("Create stash error:", error); // logs to console for debugging
+    
+    //     return res.status(500).json({
+    //         msg: 'server side error',
+    //         error: error.message || 'Unknown error',
+    //     });
+    // }
 }

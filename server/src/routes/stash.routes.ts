@@ -5,4 +5,4 @@ import { userAuth } from '../middlewares/auth.middleware';
 
 export const stashRouter = Router();
 
-stashRouter.post('/stash',userAuth,createStash);
+stashRouter.post('/createStash',userAuth,createStash);

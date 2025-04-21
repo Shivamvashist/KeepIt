@@ -9,7 +9,7 @@ export function userAuth(req:Request,res:Response,next:NextFunction){
     if(decodedToken && decodedToken.userId) {
         
         (req as any).user = {  //req.user temp workaround , else add the user type in any .d.ts and include that type file in tsconfig.json
-            id:decodedToken.userId
+            userId:decodedToken.userId
         }
 
         return next();

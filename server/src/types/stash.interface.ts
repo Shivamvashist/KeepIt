@@ -1,12 +1,18 @@
 import {Types} from 'mongoose';
 
 export enum stashTypes{
-    Link = 'link',
-    Note = 'note',
-    Tweet = 'tweet',
-    Video = 'video',
-    Doc = 'document',
-    Shorts = 'short-videos'
+    // Link = 'link',
+    // Note = 'note',
+    // Tweet = 'tweet',
+    // Video = 'video',
+    // Doc = 'document',
+    // Shorts = 'short-videos'
+    Link,
+    Note,
+    Tweet,
+    Video,
+    Doc,
+    Shorts
 
 }
 

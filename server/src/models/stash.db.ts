@@ -1,6 +1,6 @@
 import mongoose, { Schema,Document } from "mongoose";
 import { IStash,stashTypes } from "../types/stash.interface";
-import { userModel } from '../models/user.db';
+import userModel from '../models/user.db';
 
 interface IStashDocument extends IStash,Document{};
 
@@ -38,7 +38,7 @@ const stashSchema = new Schema<IStashDocument>({
 //can also use validate within the schema but this pre('save') hook is much better.
 //it runs before making an entry thus making the entries more secure
 
-stashSchema.pre('save', async function (next) {
+stashSchema.pre<IStashDocument>('save', async function (next) {
     const user = await userModel.findById(this.userId);
     if (!user) {
       throw new Error('User does not exist');
