@@ -8,4 +8,4 @@ export const requiredStashEdit = z.object({
     tag:z.array(z.string()).optional(),
 });
 
-export type stashEditBody = z.infer<typeof requiredStash>;
+export type stashEditBody = z.infer<typeof requiredStashEdit>;
