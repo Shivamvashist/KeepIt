@@ -1,6 +1,7 @@
 import { Request,Response } from 'express';
 import stashModel from '../../models/stash.db';
 
+
 export async function getStashItems(req:Request,res:Response){
 
     try {
@@ -8,19 +9,19 @@ export async function getStashItems(req:Request,res:Response){
         const userId = (req as any).user?.userId;
 
         if(!userId){
-            res.status(401).json({msg:"Unauthorized, PLease login!"});
+            return res.status(401).json({msg:"Unauthorized, PLease login!"});
         }
 
         const userStashItems = await stashModel.find({
             userId:userId,
         }).populate('userId','username email');
     
-        res.status(200).json({
+        return res.status(200).json({
             items:userStashItems
         })
     
     } catch (error: any) {
-        res.status(500).json({msg:"Internal Server error! ",error:error.message})
+        return res.status(500).json({msg:"Internal Server error! ",error:error.message})
     }
 
 }
