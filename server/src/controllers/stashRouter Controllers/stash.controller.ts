@@ -37,6 +37,7 @@ export async function createStash(req:Request<{},{},stashBody>,res:Response){
     catch (error: any) {
         return res.status(500).json({msg:'server side error',error:error.message})
     }
+}
     // catch (error: any) {
     //     console.error("Create stash error:", error); // logs to console for debugging
     
@@ -45,4 +46,3 @@ export async function createStash(req:Request<{},{},stashBody>,res:Response){
     //         error: error.message || 'Unknown error',
     //     });
     // }
-}
