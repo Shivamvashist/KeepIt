@@ -1,4 +1,4 @@
-import {motion,AnimatePresence} from 'framer-motion';
+import {motion} from 'framer-motion';
 import authGirl from '../assets/imgs/authGirl.png'
 import { Link } from 'react-router-dom';
 

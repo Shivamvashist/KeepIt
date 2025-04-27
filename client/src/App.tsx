@@ -3,7 +3,7 @@ import { Toaster } from "react-hot-toast"
 import { HomePage } from "./pages/Homepage"
 import { Login } from "./pages/LoginPage"
 import { SignUp } from "./pages/SignupPage"
-import { AnimatePresence } from "framer-motion"
+// import { AnimatePresence } from "framer-motion"
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       <Toaster/>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage/>} />
+          <Route path="/" element={<HomePage/>} /> 
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/login" element={<Login/>}/>
         </Routes>
