@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'MoonWalk';
+    src: url('/src/assets/fonts/MoonWalk.ttf') format('truetype'); /* or .otf if you prefer */
+    font-weight: normal;
+    font-style: normal;
+  }

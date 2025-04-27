@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast"
 import { HomePage } from "./pages/Homepage"
 import { Login } from "./pages/LoginPage"
 import { SignUp } from "./pages/SignupPage"
+import { AnimatePresence } from "framer-motion"
 
 function App() {
 
