@@ -52,7 +52,7 @@ export function Login(){
                 animate={{opacity:1,y:0}} 
                 transition={{delay:0.6,duration:0.4}} 
                 className='mb-6 mt-3'>
-                    Keep It
+                    <Link className='cursor-pointer hover:text-gray-400 duration-200' to={'/'}>Keep It</Link>
                     <br/>
                     <span className='text-xl '>Your Second Brain !</span>
                 </motion.div>
@@ -62,7 +62,7 @@ export function Login(){
                 <motion.input
                 initial={{opacity:0,y:20}}
                 animate={{opacity:1,y:0}} 
-                transition={{delay:0.7,duration:0.4}} 
+                transition={{delay:0.6,duration:0.4}} 
                 type='email' 
                 placeholder='username'
                 className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-xl' />
@@ -70,7 +70,7 @@ export function Login(){
                 <motion.input
                 initial={{opacity:0,y:20}}
                 animate={{opacity:1,y:0}} 
-                transition={{delay:0.8,duration:0.4}}
+                transition={{delay:0.7,duration:0.4}}
                 type='email' 
                 placeholder='Password'
                 className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-xl' />
@@ -78,7 +78,7 @@ export function Login(){
                 <motion.div
                 initial={{opacity:0,y:20}}
                 animate={{opacity:1,y:0}} 
-                transition={{delay:0.9,duration:0.4}}
+                transition={{delay:0.8,duration:0.4}}
                 >
                 <motion.button
                 whileHover={{scale:1.04}}
@@ -96,7 +96,7 @@ export function Login(){
                 animate={{opacity:1,y:0}} 
                 transition={{delay:0.6,duration:0.4}} 
                 className='border-t border-white/15'>
-                    <span className='text-sm text-gray-500 font-mono'>Don't have an account? - <Link to={'/signup'} className='font-bold text-blue-700 hover:text-blue-500 cursor-pointer' >Sign Up!</Link> </span>
+                    <span className='text-sm text-gray-500 font-mono'>Don't have an account? - <Link to={'/signup'} className='font-bold text-blue-700 hover:text-blue-500 duration-200 cursor-pointer' >Sign Up!</Link> </span>
                 </motion.div>
 
             </motion.div>

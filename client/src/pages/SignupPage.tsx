@@ -34,7 +34,7 @@ export function SignUp(){
                 animate={{opacity:1,y:0}} 
                 transition={{delay:0.6,duration:0.4}} 
                 className='mb-6'>
-                    Keep It
+                    <Link className='cursor-pointer hover:text-gray-400 duration-200' to={'/'}>Keep It</Link>
                     <br/>
                     <span className='text-xl '>Your Second Brain !</span>
                 </motion.div>
@@ -84,7 +84,7 @@ export function SignUp(){
                 animate={{opacity:1,y:0}} 
                 transition={{delay:0.6,duration:0.4}} 
                 className='border-t border-white/15'>
-                    <span className='text-sm text-gray-500 font-mono'>Already a user - <Link to={'/login'} className='font-bold text-blue-700 hover:text-blue-500 cursor-pointer' >Login!</Link> </span>
+                    <span className='text-sm text-gray-500 font-mono'>Already a user - <Link to={'/login'} className='duration-200 font-bold text-blue-700 hover:text-blue-500 cursor-pointer' >Login!</Link> </span>
                 </motion.div>
 
             </motion.div>
