@@ -57,17 +57,91 @@ export function HomePage(){
             </motion.div>
         </div>
 
-        <motion.div>
-            <motion.h1 className='text-gray-200 text-4xl font-bold text-center'>Save anything. Find it instantly.</motion.h1>
-            <motion.div className='flex justify-center items-center'>
-                <motion.div className='grid grid-flow-row  grid-cols-4 gap-12 w-[90%] mt-10'>
-                    <motion.div className=' border '>
-                        <motion.img src={tweetSvg} />
+        <motion.div className='flex flex-row w-[90%] h-screen mx-auto  items-center justify-center'>
+            <motion.div className='w-[50%] flex flex-col gap-10 p-10'>
+                <motion.h1 className='text-gray-200 text-6xl w-[60%] font-bold mx-auto text-left '>Save anything.<br/> Find it instantly.</motion.h1>
+                <motion.h1 className='text-gray-200 text-2xl w-[60%] text-left mx-auto  '>KeepIt helps you organize links, tweets, notes, docs, and videos in one place. Save anything from the web and access it from anywhere.</motion.h1>
+            </motion.div>
+
+            <motion.div className='w-[50%] '>
+                <motion.div className='grid grid-flow-col grid-col-2 grid-rows-2 gap-16 '>
+
+                    <motion.div
+                    initial={{y:0}}
+                    animate={{y:[4,-4,4]}} 
+                    transition={{repeat:Infinity,duration:1.6,ease:"easeInOut"}}
+                    className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
+
+                        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
+                            <img className='h-[32px]' src={tweetSvg}/>
+                            <motion.h1>Tweet</motion.h1>
+                        </motion.div>
+
+                        <motion.div>
+                            <motion.h1 className='font-bold text-2xl mb-1'>This is the Title of the Tweet!</motion.h1>
+                            <span>This is the description part of the tweet that is stored</span>
+                        </motion.div>
 
                     </motion.div>
-                    
+
+                    <motion.div
+                    initial={{y:0}}
+                    animate={{y:[4,-4,4]}} 
+                    transition={{repeat:Infinity,duration:1.4,ease:"easeInOut"}}
+                    className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
+
+                        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
+                            <img className='h-[32px]' src={tweetSvg}/>
+                            <motion.h1>Tweet</motion.h1>
+                        </motion.div>
+
+                        <motion.div>
+                            <motion.h1 className='font-bold text-2xl mb-1'>This is the Title of the Tweet!</motion.h1>
+                            <span>This is the description part of the tweet that is stored</span>
+                        </motion.div>
+
+                    </motion.div>
+
+                    <motion.div
+                    initial={{y:0}}
+                    animate={{y:[4,-4,4]}} 
+                    transition={{repeat:Infinity,duration:1.4,ease:"easeInOut"}}
+                    className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
+
+                        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
+                            <img className='h-[32px]' src={tweetSvg}/>
+                            <motion.h1>Tweet</motion.h1>
+                        </motion.div>
+
+                        <motion.div>
+                            <motion.h1 className='font-bold text-2xl mb-1'>This is the Title of the Tweet!</motion.h1>
+                            <span>This is the description part of the tweet that is stored</span>
+                        </motion.div>
+
+                    </motion.div>
+
+                    <motion.div
+                    initial={{y:0}}
+                    animate={{y:[4,-4,4]}} 
+                    transition={{repeat:Infinity,duration:1.6,ease:"easeInOut"}}
+                    className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
+
+                        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
+                            <img className='h-[32px]' src={tweetSvg}/>
+                            <motion.h1>Tweet</motion.h1>
+                        </motion.div>
+
+                        <motion.div>
+                            <motion.h1 className='font-bold text-2xl mb-1'>This is the Title of the Tweet!</motion.h1>
+                            <span>This is the description part of the tweet that is stored</span>
+                        </motion.div>
+
+                    </motion.div>
+
                 </motion.div>
             </motion.div>
+            
+
             
         </motion.div>
 
