@@ -14,7 +14,7 @@ export async function userLogin( req:Request<{},{},SigninBody>, res:Response ){
     if(!validationResults.success){
         res.status(400).json({
             msg:"Invalid input!",
-            error:validationResults.error.errors
+            error:validationResults.error.errors[0].message
         })
         return
     }
