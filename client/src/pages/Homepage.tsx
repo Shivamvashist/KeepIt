@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import homeGirl from '../assets/imgs/homeGirl.png'
 import tweetSvg from '../assets/svgs/tweet.svg'
-import noteSvg from '../assets/svgs/note.svg'
+import noteSvg from '../assets/svgs/note.png'
 import linkSvg from '../assets/svgs/link.png'
 import videoSvg from '../assets/svgs/video.png'
 import { HoverButton } from '../components/ui/HoverButton'
@@ -44,7 +44,7 @@ export function HomePage(){
         },
       ];
 
-    return <div className='bg-gradient-to-bl from-black via-[#1f0230] to-blue-950'>
+    return <div className=''>
         <div className='w-screen h-screen flex justify-center pt-20 '>
             <motion.div className='w-[90%] h-[85%] flex flex-row 
             rounded-4xl justify-between overflow-hidden 
@@ -102,7 +102,7 @@ export function HomePage(){
             </motion.div>
 
             <motion.div className='w-[50%] '>
-                <motion.div className='grid grid-flow-col grid-col-2 grid-rows-2 gap-16 '>
+                <motion.div className='grid grid-flow-col grid-col-2 grid-rows-2 gap-8 '>
 
                     {cardData.map((data,index)=>(
                         <StashCard

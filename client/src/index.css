@@ -6,3 +6,9 @@
     font-weight: normal;
     font-style: normal;
   }
+
+body{
+  background-image: linear-gradient(to bottom left,#000000,#1f0230,#162456);
+
+}
+/* bg-gradient-to-bl from-black via-[#1f0230] to-blue-950 */
