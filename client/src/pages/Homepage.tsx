@@ -1,10 +1,48 @@
-import {motion} from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import homeGirl from '../assets/imgs/homeGirl.png'
 import tweetSvg from '../assets/svgs/tweet.svg'
+import noteSvg from '../assets/svgs/note.svg'
+import linkSvg from '../assets/svgs/link.png'
+import videoSvg from '../assets/svgs/video.png'
 import { HoverButton } from '../components/ui/HoverButton'
 import { Link } from 'react-router-dom'
+import { Icard,StashCard } from '../components/cards/StashCards'
 
 export function HomePage(){
+
+    const cardData: Icard[] = [
+        {
+          img: tweetSvg,
+          type: "Tweet",
+          title: "Why developers love TypeScript",
+          description: "A thread on why TypeScript improves your codebase with type safety and better tooling.",
+          tags: ["typescript", "dev", "thread"],
+        },
+        {
+          img: noteSvg,
+          type: "Note",
+          title: "Recoil vs Redux - My Notes",
+          description: "Quick notes comparing Recoil and Redux based on my last project with state-heavy logic.",
+          tags: ["notes", "recoil", "redux"],
+        },
+        {
+          img: linkSvg,
+          type: "Link",
+          title: "The Ultimate React Patterns Guide",
+          description: "A must-read article on advanced React component design patterns with examples.",
+          link: "https://ui.dev/react-patterns",
+          tags: ["react", "patterns", "frontend"],
+        },
+        {
+          img: videoSvg,
+          type: "Video",
+          title: "Dark Mode UI Tutorial",
+          description: "A YouTube tutorial that teaches how to build dark mode interfaces using Tailwind and React.",
+          link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          tags: ["video", "dark mode", "ui"],
+        },
+      ];
 
     return <div className='bg-gradient-to-bl from-black via-[#1f0230] to-blue-950'>
         <div className='w-screen h-screen flex justify-center pt-20 '>
@@ -66,77 +104,17 @@ export function HomePage(){
             <motion.div className='w-[50%] '>
                 <motion.div className='grid grid-flow-col grid-col-2 grid-rows-2 gap-16 '>
 
-                    <motion.div
-                    initial={{y:0}}
-                    animate={{y:[4,-4,4]}} 
-                    transition={{repeat:Infinity,duration:1.6,ease:"easeInOut"}}
-                    className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
+                    {cardData.map((data,index)=>(
+                        <StashCard
+                        key={index}
+                        img={data.img}
+                        type={data.type}
+                        title={data.title}
+                        link={data.link}
+                        description={data.description}
+                        tags={data.tags}
 
-                        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
-                            <img className='h-[32px]' src={tweetSvg}/>
-                            <motion.h1>Tweet</motion.h1>
-                        </motion.div>
-
-                        <motion.div>
-                            <motion.h1 className='font-bold text-2xl mb-1'>This is the Title of the Tweet!</motion.h1>
-                            <span>This is the description part of the tweet that is stored</span>
-                        </motion.div>
-
-                    </motion.div>
-
-                    <motion.div
-                    initial={{y:0}}
-                    animate={{y:[4,-4,4]}} 
-                    transition={{repeat:Infinity,duration:1.4,ease:"easeInOut"}}
-                    className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
-
-                        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
-                            <img className='h-[32px]' src={tweetSvg}/>
-                            <motion.h1>Tweet</motion.h1>
-                        </motion.div>
-
-                        <motion.div>
-                            <motion.h1 className='font-bold text-2xl mb-1'>This is the Title of the Tweet!</motion.h1>
-                            <span>This is the description part of the tweet that is stored</span>
-                        </motion.div>
-
-                    </motion.div>
-
-                    <motion.div
-                    initial={{y:0}}
-                    animate={{y:[4,-4,4]}} 
-                    transition={{repeat:Infinity,duration:1.4,ease:"easeInOut"}}
-                    className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
-
-                        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
-                            <img className='h-[32px]' src={tweetSvg}/>
-                            <motion.h1>Tweet</motion.h1>
-                        </motion.div>
-
-                        <motion.div>
-                            <motion.h1 className='font-bold text-2xl mb-1'>This is the Title of the Tweet!</motion.h1>
-                            <span>This is the description part of the tweet that is stored</span>
-                        </motion.div>
-
-                    </motion.div>
-
-                    <motion.div
-                    initial={{y:0}}
-                    animate={{y:[4,-4,4]}} 
-                    transition={{repeat:Infinity,duration:1.6,ease:"easeInOut"}}
-                    className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
-
-                        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
-                            <img className='h-[32px]' src={tweetSvg}/>
-                            <motion.h1>Tweet</motion.h1>
-                        </motion.div>
-
-                        <motion.div>
-                            <motion.h1 className='font-bold text-2xl mb-1'>This is the Title of the Tweet!</motion.h1>
-                            <span>This is the description part of the tweet that is stored</span>
-                        </motion.div>
-
-                    </motion.div>
+                        />))}
 
                 </motion.div>
             </motion.div>
