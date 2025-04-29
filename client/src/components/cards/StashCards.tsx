@@ -15,7 +15,7 @@ export function StashCard({img,type,title,link,description,tags}:Icard){
         initial={{}}
         animate={{}}
         whileHover={{scale:1.1}}
-        className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10'>
+        className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10 '>
 
             <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
                 <img className='h-[32px]' src={img}/>
@@ -25,7 +25,7 @@ export function StashCard({img,type,title,link,description,tags}:Icard){
             <motion.div>
                 <motion.h1 className='font-bold text-2xl '>{title}</motion.h1>
                 <h1 className='mb-2 font-semibold text-gray-400 ' >{link}</h1>
-                <span className='font-medium'>{description}</span>
+                <span className='font-medium line-clamp-2'>{description}</span>
             </motion.div>
 
             <motion.div className='flex flex-row items-center gap-2 font-semibold mt-4'>

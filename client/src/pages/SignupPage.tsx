@@ -1,10 +1,20 @@
 import {motion} from 'framer-motion';
 import authGirl from '../assets/imgs/authGirl.png'
 import { Link } from 'react-router-dom';
+import { useRef, useState } from 'react';
 
 
 export function SignUp(){
     
+    const [showPass,setShowPass] = useState(false)
+
+    const emailRef = useRef();
+
+    
+    function showPassFn(){
+        setShowPass(v=>!v)
+    }
+
 
 
     return <div className='h-[100vh] flex justify-center items-center bg-gradient-to-br  from-[#4e1369] via-[#1e032bf1] to-[#010102]'>
@@ -38,43 +48,46 @@ export function SignUp(){
                     <br/>
                     <span className='text-xl '>Your Second Brain !</span>
                 </motion.div>
+                <motion.form className='flex flex-col gap-4'>
+                    <motion.input
+                    initial={{opacity:0,y:20}}
+                    animate={{opacity:1,y:0}} 
+                    transition={{delay:0.6,duration:0.4}} 
+                    type='email' required
+                    placeholder='name@email.com'
+                    className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
+
+                    <motion.input
+                    initial={{opacity:0,y:20}}
+                    animate={{opacity:1,y:0}} 
+                    transition={{delay:0.7,duration:0.4}} 
+                    type='text' required
+                    placeholder='username'
+                    className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
+
+                    <motion.input
+                    initial={{opacity:0,y:20}}
+                    animate={{opacity:1,y:0}} 
+                    transition={{delay:0.8,duration:0.4}}
+                    type={(showPass ? "text" : "password" )} required
+                    placeholder='••••••••'
+                    className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
+
+                    <motion.div
+                    initial={{opacity:0,y:20}}
+                    animate={{opacity:1,y:0}} 
+                    transition={{delay:0.9,duration:0.4}}
+                    >
+                        <motion.button
+                        type='submit'
+                        whileHover={{scale:1.04}}
+                        whileTap={{scale:0.94}}
+                        className=' w-[100%] p-3 border rounded-xl border-gray-700 bg-black/30 hover:mask-b-from-5 text-xl mb-3'>
+                            Sign-Up
+                        </motion.button>
+                    </motion.div>
+                </motion.form>
                 
-                <motion.input
-                initial={{opacity:0,y:20}}
-                animate={{opacity:1,y:0}} 
-                transition={{delay:0.6,duration:0.4}} 
-                type='email' 
-                placeholder='enter E-mail'
-                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-xl' />
-
-                <motion.input
-                initial={{opacity:0,y:20}}
-                animate={{opacity:1,y:0}} 
-                transition={{delay:0.7,duration:0.4}} 
-                type='email' 
-                placeholder='username'
-                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-xl' />
-
-                <motion.input
-                initial={{opacity:0,y:20}}
-                animate={{opacity:1,y:0}} 
-                transition={{delay:0.8,duration:0.4}}
-                type='email' 
-                placeholder='Password'
-                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-xl' />
-
-                <motion.div
-                initial={{opacity:0,y:20}}
-                animate={{opacity:1,y:0}} 
-                transition={{delay:0.9,duration:0.4}}
-                >
-                <motion.button
-                whileHover={{scale:1.04}}
-                whileTap={{scale:0.94}}
-                className=' w-[100%] p-3 border rounded-xl border-gray-700 bg-black/30 hover:mask-b-from-5 text-xl mb-3'>
-                    Sign-Up
-                </motion.button>
-                </motion.div>
                 
                 {/* hover:scale-[1.04] active:scale-[0.94] ease-in-out duration-200  */}
 

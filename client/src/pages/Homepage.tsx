@@ -113,7 +113,6 @@ export function HomePage(){
                         link={data.link}
                         description={data.description}
                         tags={data.tags}
-
                         />))}
 
                 </motion.div>

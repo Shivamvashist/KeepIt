@@ -1,11 +1,15 @@
 import {motion} from 'framer-motion';
 import authGirl from '../assets/imgs/authGirl.png'
 import { Link } from 'react-router-dom';
-
+import { useState } from 'react';
 
 export function Login(){
     
+    const [showPass,setShowPass] = useState(false)
 
+    function showPassFn(){
+        setShowPass(v=>!v)
+    }
 
     return <div className='h-[100vh] flex justify-center items-center bg-gradient-to-br  from-[#4e1369] via-[#1e032bf1] to-[#010102]'>
         
@@ -63,17 +67,17 @@ export function Login(){
                 initial={{opacity:0,y:20}}
                 animate={{opacity:1,y:0}} 
                 transition={{delay:0.6,duration:0.4}} 
-                type='email' 
+                type='text' required
                 placeholder='username'
-                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-xl' />
+                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
 
                 <motion.input
                 initial={{opacity:0,y:20}}
                 animate={{opacity:1,y:0}} 
                 transition={{delay:0.7,duration:0.4}}
-                type='email' 
-                placeholder='Password'
-                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-xl' />
+                type={(showPass ? "text" : "password" )} required
+                placeholder='••••••••'
+                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
 
                 <motion.div
                 initial={{opacity:0,y:20}}
