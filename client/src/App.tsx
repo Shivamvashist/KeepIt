@@ -7,7 +7,6 @@ import { Stash } from "./pages/Stash"
 // import { AnimatePresence } from "framer-motion"
 
 function App() {
-
   return (
     <div>
       <Toaster/>

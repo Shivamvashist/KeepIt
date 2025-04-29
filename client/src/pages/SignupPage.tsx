@@ -1,18 +1,69 @@
 import {motion} from 'framer-motion';
 import authGirl from '../assets/imgs/authGirl.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import axios from 'axios';
 
 
 export function SignUp(){
     
     const [showPass,setShowPass] = useState(false)
 
-    const emailRef = useRef();
+    const navigate = useNavigate();
+
+    const emailRef  = useRef<HTMLInputElement | null>(null);
+    const usernameRef  = useRef<HTMLInputElement | null>(null);
+    const passwordRef  = useRef<HTMLInputElement | null>(null);
 
     
     function showPassFn(){
         setShowPass(v=>!v)
+    }
+
+    async function handleSubmit(e:any){
+        
+        e.preventDefault()
+
+        const email = emailRef.current?.value
+        const username = usernameRef.current?.value;
+        const password = passwordRef.current?.value;
+        
+        const backend = import.meta.env.VITE_BACKEND_URL
+
+        console.log(backend)
+
+        try {
+            const userSignup = await axios.post(`${backend}userAuth/signup`,{
+                email: email,
+                username: username,
+                password: password
+            })
+
+            toast.success(userSignup.data, {
+                position: "bottom-right"
+              })
+
+            setTimeout(()=>{
+                navigate('/login');
+            },1500)
+
+        } catch (e){
+            if(e.status === 409 ){
+                toast.error("User already exists!", {position: "bottom-right"})
+            } 
+            if(e.status === 404){
+                toast.error("Internal server error", {position: "bottom-right"})
+            }
+            if(e.status === 400){
+    
+                toast.error(e.response.data, {
+                    position: "bottom-right"
+                })
+                console.log(e.response.data)
+            }
+        }
+
     }
 
 
@@ -48,12 +99,13 @@ export function SignUp(){
                     <br/>
                     <span className='text-xl '>Your Second Brain !</span>
                 </motion.div>
-                <motion.form className='flex flex-col gap-4'>
+                <motion.form onSubmit={handleSubmit} className='flex flex-col gap-4'>
                     <motion.input
                     initial={{opacity:0,y:20}}
                     animate={{opacity:1,y:0}} 
                     transition={{delay:0.6,duration:0.4}} 
                     type='email' required
+                    ref={emailRef}
                     placeholder='name@email.com'
                     className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
 
@@ -62,6 +114,7 @@ export function SignUp(){
                     animate={{opacity:1,y:0}} 
                     transition={{delay:0.7,duration:0.4}} 
                     type='text' required
+                    ref={usernameRef}
                     placeholder='username'
                     className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
 
@@ -70,6 +123,7 @@ export function SignUp(){
                     animate={{opacity:1,y:0}} 
                     transition={{delay:0.8,duration:0.4}}
                     type={(showPass ? "text" : "password" )} required
+                    ref={passwordRef}
                     placeholder='••••••••'
                     className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
 
