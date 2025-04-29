@@ -1,11 +1,50 @@
 import {motion} from 'framer-motion';
 import authGirl from '../assets/imgs/authGirl.png'
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link,useNavigate } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 export function Login(){
     
     const [showPass,setShowPass] = useState(false)
+
+    const navigate = useNavigate();
+
+    const usernameRef = useRef<HTMLInputElement | null>(null);
+    const passwordRef = useRef<HTMLInputElement | null>(null);
+
+    async function handleSubmit(e){
+
+        e.preventDefault()
+
+        const username = usernameRef.current?.value;
+        const password = passwordRef.current?.value;
+        const backend = import.meta.env.VITE_BACKEND_URL;
+        try {
+            const userLogin = await axios.post(`${backend}userAuth/login`,{username,password});
+            toast.success(userLogin.data.msg,{position:"bottom-right"})
+            setTimeout(()=>{
+                navigate('/stash');
+            },1500)
+            
+        } catch (error: any) {
+            const status = error.response?.status;
+            const data = error.response?.data;
+        
+            if (status === 400) {
+              toast.error(data.error || 'Bad request', { position: "bottom-right" });
+            } else if (status === 401) {
+              toast.error(data || 'Unauthorized', { position: "bottom-right" });
+            } else if (status === 404) {
+              toast.error(data || 'Not found', { position: "bottom-right" });
+            } else if (status === 500) {
+              toast.error(data?.msg || 'Server error', { position: "bottom-right" });
+            } else {
+              toast.error('Something went wrong', { position: "bottom-right" });
+            }
+          }
+    }
 
     function showPassFn(){
         setShowPass(v=>!v)
@@ -61,36 +100,41 @@ export function Login(){
                     <span className='text-xl '>Your Second Brain !</span>
                 </motion.div>
                 
+                <motion.form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+                    <motion.input
+                    initial={{opacity:0,y:20}}
+                    animate={{opacity:1,y:0}} 
+                    transition={{delay:0.6,duration:0.4}} 
+                    type='text' required
+                    ref={usernameRef}
+                    placeholder='username'
+                    className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
+
+                    <motion.input
+                    initial={{opacity:0,y:20}}
+                    animate={{opacity:1,y:0}} 
+                    transition={{delay:0.7,duration:0.4}}
+                    type={(showPass ? "text" : "password" )} required
+                    ref={passwordRef}
+                    placeholder='••••••••'
+                    className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
+
+                    <motion.div
+                    initial={{opacity:0,y:20}}
+                    animate={{opacity:1,y:0}} 
+                    transition={{delay:0.8,duration:0.4}}
+                    >
+                    <motion.button
+                    whileHover={{scale:1.04}}
+                    whileTap={{scale:0.94}}
+                    type='submit'
+                    className=' w-[100%] p-3 border rounded-xl border-gray-700 bg-black/30 hover:mask-b-from-5 text-xl mb-3'>
+                        Login
+                    </motion.button>
+                    </motion.div>
+                </motion.form>
+
                 
-
-                <motion.input
-                initial={{opacity:0,y:20}}
-                animate={{opacity:1,y:0}} 
-                transition={{delay:0.6,duration:0.4}} 
-                type='text' required
-                placeholder='username'
-                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
-
-                <motion.input
-                initial={{opacity:0,y:20}}
-                animate={{opacity:1,y:0}} 
-                transition={{delay:0.7,duration:0.4}}
-                type={(showPass ? "text" : "password" )} required
-                placeholder='••••••••'
-                className='w-[100%] h-12 border pl-5 rounded-xl border-gray-700 bg-black/30 mask-b-from-5 text-lg font-[roboto]' />
-
-                <motion.div
-                initial={{opacity:0,y:20}}
-                animate={{opacity:1,y:0}} 
-                transition={{delay:0.8,duration:0.4}}
-                >
-                <motion.button
-                whileHover={{scale:1.04}}
-                whileTap={{scale:0.94}}
-                className=' w-[100%] p-3 border rounded-xl border-gray-700 bg-black/30 hover:mask-b-from-5 text-xl mb-3'>
-                    Login
-                </motion.button>
-                </motion.div>
                 
                 {/* hover:scale-[1.04] active:scale-[0.94] ease-in-out duration-200  */}
 
