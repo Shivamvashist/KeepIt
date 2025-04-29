@@ -48,5 +48,4 @@ export async function userLogin( req:Request<{},{},SigninBody>, res:Response ){
             error:error
         })
     }
-
 }

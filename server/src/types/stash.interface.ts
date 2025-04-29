@@ -13,7 +13,7 @@ export enum stashTypes{
 export interface IStash{
     userId:Types.ObjectId,
     title:string,
-    link:URL,
+    link?:URL,
     content:string,
     type:stashTypes,
     tag?:string[]
