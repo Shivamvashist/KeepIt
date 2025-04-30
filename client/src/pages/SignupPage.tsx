@@ -1,10 +1,11 @@
 import {motion} from 'framer-motion';
 import authGirl from '../assets/imgs/authGirl.png'
 import { Link, useNavigate } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { API } from '../utils/axios';
-
+import { useRecoilState } from 'recoil';
+import { authState } from '../state/auth.recoil';
 
 export function SignUp(){
     
@@ -12,10 +13,20 @@ export function SignUp(){
 
     const navigate = useNavigate();
 
+    const [auth] = useRecoilState(authState);
+
     const emailRef  = useRef<HTMLInputElement | null>(null);
     const usernameRef  = useRef<HTMLInputElement | null>(null);
     const passwordRef  = useRef<HTMLInputElement | null>(null);
 
+    useEffect(()=>{
+        if(auth.isLoggedIn){
+            setTimeout(()=>{
+                navigate('/stash')
+            },2100);
+            toast.loading("User already Logged In!",{duration:2000,position:"bottom-right"})
+        }
+    })
     
     function showPassFn(){
         setShowPass(v=>!v)

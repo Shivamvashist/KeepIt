@@ -17,7 +17,6 @@ function App() {
   useEffect(()=>{
     async function authInit(){
       const authData = await checkAuth();
-      console.log(authData)
       setAuth({...authData,loading:false});
     }
     authInit()

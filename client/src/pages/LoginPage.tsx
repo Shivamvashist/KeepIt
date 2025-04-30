@@ -1,9 +1,12 @@
 import {motion} from 'framer-motion';
 import authGirl from '../assets/imgs/authGirl.png'
 import { Link,useNavigate } from 'react-router-dom';
-import { useRef, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { API } from '../utils/axios';
+import { useRecoilState } from 'recoil';
+import { authState } from '../state/auth.recoil';
+import { checkAuth } from '../utils/checkAuth';
 
 export function Login(){
     
@@ -11,8 +14,19 @@ export function Login(){
 
     const navigate = useNavigate();
 
+    const [auth,setAuth] = useRecoilState(authState);
+
     const usernameRef = useRef<HTMLInputElement | null>(null);
     const passwordRef = useRef<HTMLInputElement | null>(null);
+
+    useEffect(()=>{
+        if(auth.isLoggedIn){
+            setTimeout(()=>{
+                navigate('/stash')
+            },2100);
+            toast.loading("User already Logged In!",{duration:2000,position:"bottom-right"})
+        }
+    })
 
     async function handleSubmit(e){
 
@@ -20,10 +34,11 @@ export function Login(){
 
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
-        const backend = import.meta.env.VITE_BACKEND_URL;
         try {
-            const userLogin = await axios.post(`${backend}userAuth/login`,{username,password});
+            const userLogin = await API.post(`/userAuth/login`,{username,password});
             toast.success(userLogin.data.msg,{position:"bottom-right"})
+            const userData = await checkAuth();
+            setAuth({...userData,loading:false})
             setTimeout(()=>{
                 navigate('/stash');
             },1500)
