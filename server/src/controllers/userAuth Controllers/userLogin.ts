@@ -38,7 +38,7 @@ export async function userLogin( req:Request<{},{},SigninBody>, res:Response ){
         if(verifyPass){
             const token = jwt.sign({username:findUser.username,userId:findUser._id},JWT_SECRET_USER);
             return res.status(200)
-            .cookie("token",token,{maxAge:3600000})
+            .cookie("token",token,{httpOnly: true,maxAge:3600000})
             .json({msg:"Successfully Signed in!"});
         }
 
