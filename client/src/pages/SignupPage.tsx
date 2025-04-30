@@ -3,7 +3,7 @@ import authGirl from '../assets/imgs/authGirl.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import axios from 'axios';
+import { API } from '../utils/axios';
 
 
 export function SignUp(){
@@ -28,13 +28,9 @@ export function SignUp(){
         const email = emailRef.current?.value
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
-        
-        const backend = import.meta.env.VITE_BACKEND_URL
-
-        console.log(backend)
 
         try {
-            const userSignup = await axios.post(`${backend}userAuth/signup`,{
+            const userSignup = await API.post(`/userAuth/signup`,{
                 email: email,
                 username: username,
                 password: password
