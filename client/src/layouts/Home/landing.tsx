@@ -5,7 +5,7 @@ import homeGirl from '../../assets/imgs/homeGirl.png'
 
 export function LandingHero(){
 
-    return <div className='w-screen h-screen flex justify-center pt-20 '>
+    return <div className='w-screen h-screen flex justify-center pt-32 '>
         <motion.div className='w-[90%] h-[85%] flex flex-row 
         rounded-4xl justify-between overflow-hidden 
         bg-gradient-to-br from-black via-[#1f0230] to-blue-950
