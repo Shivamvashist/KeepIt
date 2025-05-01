@@ -1,10 +1,6 @@
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { useState } from 'react'
-import Logo from '../../assets/imgs/keepItLogo.png'
-import login from '../assets/icons/signin.jpg'
-import logout from '../assets/icons/logout.jpg'
-import signup from '../assets/icons/signup.jpg'
-import stash from '../assets/icons/stash.jpg'
+// import Logo from '../../assets/imgs/keepItLogo.png'
 import { useRecoilValue } from 'recoil';
 import { authState } from '../../state/auth.recoil';
 import { Link } from 'react-router-dom';
