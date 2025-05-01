@@ -33,12 +33,13 @@ export function LogoutMenu(){
     }
 
     return <motion.div
-    initial={{opacity:0,scale:0}}
+    initial={{opacity:0,scale:2}}
     animate={{opacity:1,scale:1}}
     transition={{ease:"anticipate",duration:0.7}}
-    exit={{opacity:0,scale:0}} 
+    exit={{opacity:0,scale:2}} 
+    onClick={()=>{setlogout(false)}}
     className="fixed z-20 h-full w-full top-0 bg-transparent backdrop-blur-xl flex justify-center items-center">
-        <motion.div className=" h-52 w-72 border rounded-2xl border-white/20 bg-black/80 flex flex-col items-center justify-center shadow-2xl gap-4 
+        <motion.div className="z-30 h-52 w-72 border rounded-2xl border-white/20 bg-black/80 flex flex-col items-center justify-center shadow-2xl gap-4 
         text-white text-2xl font-bold">
             <motion.span
             initial={{opacity:0,y:20}}

@@ -49,7 +49,7 @@ function LoggedIn(){
 
     const setLogout = useSetRecoilState(logoutState);
 
-    return <motion.div className='flex gap-2 items-center'>
+    return <motion.div className='flex gap-2 items-center mr-6'>
         <Link to='/stash' >
         <motion.button
         whileHover={{scale:1.08}}
@@ -73,7 +73,7 @@ function LoggedIn(){
 }
 
 function NotLoggedIn(){
-    return <motion.div className='flex gap-2 items-center'>
+    return <motion.div className='flex gap-2 items-center mr-6'>
         <Link to='/login' >
         <motion.button
         whileHover={{scale:1.08}}
