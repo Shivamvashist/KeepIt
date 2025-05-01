@@ -2,14 +2,17 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import { HoverButton } from '../../components/ui/HoverButton'
 import homeGirl from '../../assets/imgs/homeGirl.png'
+import { HeroHead } from "./HeroHead";
 
 export function LandingHero(){
 
-    return <div className='w-screen h-screen flex justify-center pt-32 '>
+    return <div className='w-screen h-screen flex justify-center pt-20'>
         <motion.div className='w-[90%] h-[85%] flex flex-row 
         rounded-4xl justify-between overflow-hidden 
         bg-gradient-to-br from-black via-[#1f0230] to-blue-950
-        drop-shadow-2xl'>
+        drop-shadow-2xl relative '>
+
+            <HeroHead/>
 
             <motion.div className='flex flex-col justify-center items-center
             w-[70%] ml-16 mt-1'>

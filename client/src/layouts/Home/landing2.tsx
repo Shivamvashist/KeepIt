@@ -51,7 +51,7 @@ export function LandingSub() {
         <motion.h1 ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }} 
+        transition={{ duration: 0.8, ease: "easeOut" }} 
         className='text-gray-200 text-6xl w-[60%] font-bold mx-auto text-left '>
             Save anything.<br/> Find it instantly.
             </motion.h1>
@@ -71,7 +71,7 @@ export function LandingSub() {
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
         className='grid grid-flow-col grid-col-2 grid-rows-2 gap-8 '>
 
             {cardData.map((data,index)=>(
