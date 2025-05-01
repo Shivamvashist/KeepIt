@@ -20,12 +20,15 @@ export function Login(){
     const passwordRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(()=>{
-        if(auth.isLoggedIn){
-            setTimeout(()=>{
-                navigate('/stash')
-            },2100);
-            toast.loading("User already Logged In!",{duration:2000,position:"bottom-right"})
-        }
+        setTimeout(()=>{
+            if(auth.isLoggedIn){
+                setTimeout(()=>{
+                    navigate('/stash')
+                },2100);
+                toast.loading("Redirecting...",{duration:2000,position:"bottom-right"})
+            }
+        },800)
+        
     })
 
     async function handleSubmit(e){

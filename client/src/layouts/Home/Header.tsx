@@ -1,9 +1,10 @@
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { useState } from 'react'
 // import Logo from '../../assets/imgs/keepItLogo.png'
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { authState } from '../../state/auth.recoil';
 import { Link } from 'react-router-dom';
+import { logoutState } from '../../state/logoutMenu';
 
 export function Header(){
 
@@ -45,8 +46,29 @@ export function Header(){
 }
 
 function LoggedIn(){
-    return <motion.div>
-        <motion.button className='py-2 px-4 text-white font-bold font-[moonwalk] border rounded-2xl'>Stash</motion.button>
+
+    const setLogout = useSetRecoilState(logoutState);
+
+    return <motion.div className='flex gap-2 items-center'>
+        <Link to='/stash' >
+        <motion.button
+        whileHover={{scale:1.08}}
+        whileTap={{scale:0.93}}
+        transition={{ease:"anticipate",duration:0.2}}
+         className='py-2 px-4 text-gray-400 font-bold font-[moonwalk] border rounded-xl '>
+            Stash
+        </motion.button>
+        </Link>
+        <Link to='' >
+        <motion.button
+        whileHover={{scale:1.08}}
+        whileTap={{scale:0.93}}
+        onClick={()=>{setLogout(true)}}
+        transition={{ease:"anticipate",duration:0.2}}
+         className='py-2 px-4 font-bold font-[moonwalk] rounded-xl bg-gray-400'>
+            Logout
+        </motion.button>
+        </Link>
     </motion.div>
 }
 
