@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const stashState = atom({
-    key: 'stashState',
+export const stashStateOld = atom({
+    key: 'stashStateOld',
     default: [],
 })
