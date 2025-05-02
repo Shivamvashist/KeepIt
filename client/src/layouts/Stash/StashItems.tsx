@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { StashCard } from '../../components/cards/StashCards';
 import { getStash } from '../../utils/getStash';
 import { useEffect} from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { stashState } from '../../state/stash.recoil';
 import Masonry from 'react-masonry-css';
 
@@ -13,6 +13,7 @@ import Link from '../../assets/svgs/link.png'
 import Video from '../../assets/svgs/video.png'
 import Doc from '../../assets/svgs/doc.png'
 import Shorts from '../../assets/svgs/reels.svg'
+import { authState } from '../../state/auth.recoil';
 
 
 
@@ -35,6 +36,8 @@ export function StashItems(){
     }
 
     const [stash,setStash] = useRecoilState(stashState);
+    const userData = useRecoilValue(authState)
+    const userName = userData.user?.username
 
     useEffect(()=>{
         async function setStashData(){
@@ -55,8 +58,8 @@ export function StashItems(){
         className=' w-[80%] flex flex-col gap-10'>
             
             <motion.div>
-                <motion.span className='font-bold text-gray-200 text-6xl'>
-                    Your Stash :
+                <motion.span className='ml-3 text-3xl  md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-600 to-gray-500 '>
+                    {userName}'s Stash :
                 </motion.span>
             </motion.div>
 

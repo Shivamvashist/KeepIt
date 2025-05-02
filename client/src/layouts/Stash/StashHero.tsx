@@ -2,6 +2,8 @@ import {motion} from 'framer-motion';
 import { Link } from 'react-router-dom';
 // import { useRef } from 'react';
 
+import logout from '../../assets/icons/logoutSwitch.png'
+
 export function StashHero(){
     
     // const ref= useRef(null);
@@ -31,6 +33,19 @@ export function StashHero(){
             </motion.span>
         </motion.div>
 
+        <motion.div 
+        initial={{x:100,opacity:0}}
+        animate={{x:0,opacity:1}}
+        transition={{delay:1.2,duration:0.7,ease:"anticipate"}}
+        className='absolute top-6 right-10'>
+            <motion.button 
+            whileHover={{scale:1.1}} 
+            whileTap={{scale:0.9}}>
+                <img className='h-14 md:h-24 brightness-50' src={logout} />
+            </motion.button>
+
+        </motion.div>
+
         
         <motion.div className='relative flex flex-col w-[70%] md:w-[60%] mt-10 md:m-20'>
             
@@ -38,9 +53,13 @@ export function StashHero(){
             initial={{scale:0,opacity:0}}
             animate={{scale:1,opacity:1}}
             transition={{delay:0.7,duration:0.4,ease:"anticipate"}}
-            className='border relative bg-black border-white/20 w-full h-28 md:h-40 lg:h-60 rounded-4xl  focus:outline-none focus:border-blue-500 focus:shadow-md transition-all duration-300'/>
+            className='border relative bg-black border-white/20 border-b-blue-900
+             text-4xl md:text-5xl lg:text-6xl text-white/20 text-center
+             w-full h-28 md:h-40 lg:h-60 rounded-4xl  
+             focus:outline-none focus:border-blue-500 focus:border-b-4 focus:shadow-md transition-all duration-300'
+            placeholder='Whats on your mind!' 
+            />
             
-
         </motion.div>
     
     </motion.div>
