@@ -49,7 +49,7 @@ export function StashItems(){
 
 
 
-    return <motion.div className=' flex justify-center items-center mt-30 '>
+    return <motion.div className='relative flex justify-center items-center mt-30 '>
 
         <motion.div 
         initial={{y:[-100],opacity:0}}
@@ -57,8 +57,8 @@ export function StashItems(){
         transition={{delay:1, duration:0.6}}
         className=' w-[80%] flex flex-col gap-10'>
             
-            <motion.div>
-                <motion.span className='ml-3 text-3xl  md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-600 to-gray-500 '>
+            <motion.div >
+                <motion.span className=' ml-3 text-3xl  md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-600 to-gray-500 '>
                     {userName}'s Stash :
                 </motion.span>
             </motion.div>
@@ -87,23 +87,3 @@ export function StashItems(){
 
     </motion.div>
 }
-// {/* <motion.div className='text-white border p-8 rounded-4xl border-white/20 bg-gray-400/10 '>
-
-//                 <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
-//                     <img className='h-[32px]' src={Tweet}/>
-//                     <motion.h1>Tweet</motion.h1>
-//                 </motion.div>
-
-//                 <motion.div>
-//                     <motion.h1 className='font-bold text-2xl '>This is the title</motion.h1>
-//                     <h1 className='mb-2 font-semibold text-gray-400 ' >This.com</h1>
-//                     <span className='font-medium line-clamp-2'>This is the description</span>
-//                 </motion.div>
-
-//                 <motion.div className='flex flex-row items-center gap-2 font-semibold mt-4'>
-//                     {["help","Help1"].map((tag,index)=>(
-//                         <motion.h1 key={index} className='border border-white/20 bg-amber-50/10 rounded-lg py-1 px-2'>{tag}</motion.h1>
-//                     ))}
-//                 </motion.div>
-
-//             </motion.div> */}

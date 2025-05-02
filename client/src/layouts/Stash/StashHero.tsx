@@ -1,22 +1,13 @@
 import {motion} from 'framer-motion';
 import { Link } from 'react-router-dom';
-// import { useRef } from 'react';
 
 import logout from '../../assets/icons/logoutSwitch.png'
+import { useSetRecoilState } from 'recoil';
+import { logoutState } from '../../state/logoutMenu';
 
 export function StashHero(){
-    
-    // const ref= useRef(null);
-    // const {scrollY} = useScroll();
 
-    // useMotionValueEvent(scrollY,"change",(scroll)=>{
-    //     if(scroll<=100){
-
-    //     } else {
-
-    //     }
-    // })
-    // const inView = useInView(ref, {  margin: "-200px" })
+    const setLogoutState = useSetRecoilState(logoutState);
 
     return <motion.div className='flex justify-center items-center pt-40'>
         
@@ -40,7 +31,9 @@ export function StashHero(){
         className='absolute top-6 right-10'>
             <motion.button 
             whileHover={{scale:1.1}} 
-            whileTap={{scale:0.9}}>
+            whileTap={{scale:0.9}}
+            onClick={()=>{setLogoutState(true)}}
+            >
                 <img className='h-14 md:h-24 brightness-50' src={logout} />
             </motion.button>
 
