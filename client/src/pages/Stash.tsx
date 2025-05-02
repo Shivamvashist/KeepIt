@@ -12,12 +12,13 @@ export function Stash(){
         animate={{}}
         transition={{}}
         className=' w-full h-full  bg-radial from-black via-black to-blue-950/70'>
-
-            <motion.div className=''>
+            
+            <motion.div className='min-h-[100vh]'>
                     
                 <StashHero/>
-                <StashItems/>
                 
+                <StashItems/>
+
             </motion.div>
 
         </motion.div>

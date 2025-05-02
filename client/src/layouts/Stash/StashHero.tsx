@@ -1,4 +1,4 @@
-import {motion,useMotionValueEvent,useScroll} from 'framer-motion';
+import {motion} from 'framer-motion';
 import { Link } from 'react-router-dom';
 // import { useRef } from 'react';
 
@@ -17,6 +17,7 @@ export function StashHero(){
     // const inView = useInView(ref, {  margin: "-200px" })
 
     return <motion.div className='flex justify-center items-center pt-40'>
+        
         <motion.div
         initial={{y:250,zIndex:20,scale:2,filter: "drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.0))"}}
         animate={{y:[250,0],zIndex:0,scale:[2.2,1],filter:["drop-shadow(0 0 2px rgba(255,255,255, 0))"]} }
@@ -36,7 +37,7 @@ export function StashHero(){
             <motion.input
             initial={{scale:0,opacity:0}}
             animate={{scale:1,opacity:1}}
-            transition={{delay:0.8,duration:0.4,ease:"easeInOut"}}
+            transition={{delay:0.7,duration:0.4,ease:"anticipate"}}
             className='border relative bg-black border-white/20 w-full h-28 md:h-40 lg:h-60 rounded-4xl  focus:outline-none focus:border-blue-500 focus:shadow-md transition-all duration-300'/>
             
 

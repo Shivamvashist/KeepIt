@@ -5,7 +5,7 @@ interface IstashItems {
     title: string;
     link?: string;
     content: string;
-    tags?:string[];
+    tag?:string[];
 }
 
 export const stashState = atom({

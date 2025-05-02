@@ -11,3 +11,16 @@
   background-image: linear-gradient(to bottom left,#000000,#1f0230,#162456,#162456,#1f0230,#000000);
 } */
 /* bg-gradient-to-bl from-black via-[#1f0230] to-blue-950 */
+.my-masonry-grid {
+  display: flex;
+  margin-left: -1rem; 
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 1.4rem; 
+  background-clip: padding-box;
+}
+
+.my-masonry-grid_column > div {
+  margin-bottom: 1.4rem;
+}
