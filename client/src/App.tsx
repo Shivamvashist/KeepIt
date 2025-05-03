@@ -9,6 +9,7 @@ import { checkAuth } from "./utils/checkAuth"
 // import { AnimatePresence } from "framer-motion"
 import { useSetRecoilState } from "recoil"
 import { authState } from "./state/auth.recoil"
+import { NotFound } from "./pages/NotFound"
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/stash" element={<Stash/>}/>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

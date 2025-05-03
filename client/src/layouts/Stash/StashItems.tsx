@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { StashCard } from '../../components/cards/StashCards';
 import { getStash } from '../../utils/getStash';
 import { useEffect} from 'react';
-import { Link as linked } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { stashState } from '../../state/stash.recoil';
 import Masonry from 'react-masonry-css';
@@ -22,8 +21,8 @@ export function StashItems(){
 
     const breakpoints = {
         default: 4,
-        1100: 3,
-        700: 2,
+        1200: 3,
+        900: 2,
         500: 1,
       };
 
@@ -47,7 +46,7 @@ export function StashItems(){
             setStash({...stashData,isLoading:false});
         }
         setStashData()
-    })
+    },[setStash])
 
 
 
