@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { StashCard } from '../../components/cards/StashCards';
 import { getStash } from '../../utils/getStash';
 import { useEffect} from 'react';
+import { Link as linked } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { stashState } from '../../state/stash.recoil';
 import Masonry from 'react-masonry-css';
@@ -38,6 +39,7 @@ export function StashItems(){
     const [stash,setStash] = useRecoilState(stashState);
     const userData = useRecoilValue(authState)
     const userName = userData.user?.username
+    const authStatus = userData.isLoggedIn
 
     useEffect(()=>{
         async function setStashData(){
@@ -57,11 +59,14 @@ export function StashItems(){
         transition={{delay:1, duration:0.6}}
         className=' w-[80%] flex flex-col gap-10'>
             
-            <motion.div >
-                <motion.span className=' ml-3 text-3xl  md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-600 to-gray-500 '>
-                    {userName}'s Stash :
-                </motion.span>
-            </motion.div>
+            {(authStatus?
+                <motion.div >
+                    <motion.span className=' ml-3 text-3xl  md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-600 to-gray-500 '>
+                        {userName}'s Stash :
+                    </motion.span>
+                </motion.div>
+
+                :<NotLoggedIn/>)}
 
             <Masonry
             breakpointCols={breakpoints}
@@ -86,4 +91,14 @@ export function StashItems(){
         </motion.div>
 
     </motion.div>
+}
+
+
+function NotLoggedIn(){
+
+    return <motion.div className='flex justify-center'>
+    <motion.span className=' ml-3 text-3xl  md:text-5xl lg:text-6xl font-bold text-transparent text-center bg-clip-text bg-gradient-to-r from-gray-500 via-gray-600 to-gray-500 '>
+        Login to add Items!
+    </motion.span>
+</motion.div>
 }

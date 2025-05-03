@@ -25,7 +25,7 @@ export function Login(){
                 setTimeout(()=>{
                     navigate('/stash')
                 },2100);
-                toast.loading("Redirecting...",{duration:2000,position:"bottom-right"})
+                toast.loading("Redirecting...",{duration:1200,position:"bottom-right"})
             }
         },800)
         

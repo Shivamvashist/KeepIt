@@ -56,7 +56,7 @@ function NotLoggedIn(){
             </motion.button>
         </Link>
 
-        <Link to={"/login"}>
+        <Link to={"/signup"}>
             <motion.button
             whileHover={{scale:1.1,border:"none"}} 
             whileTap={{scale:0.9}}

@@ -14,12 +14,13 @@ import toast from 'react-hot-toast';
 export function Stash(){
     
     const logoutMenuStatus = useRecoilValue(logoutState);
-    const isLoggedIn = useRecoilValue(authState);
+    const auth = useRecoilValue(authState);
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!isLoggedIn.isLoggedIn) {
-          const id = toast.loading("Invalid Session. Redirecting...", {
+      if(!auth.loading){
+        if (!auth.isLoggedIn) {
+          const id = toast.loading("Redirecting...", {
             duration: 2000,
             position: "bottom-right",
           });
@@ -31,7 +32,9 @@ export function Stash(){
       
           return () => clearTimeout(redirect);
         }
-      }, [isLoggedIn, navigate]);
+      }
+        
+      });
 
     return <div className='bg-black'>
         <motion.div 
