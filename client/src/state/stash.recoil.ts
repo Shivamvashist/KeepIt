@@ -1,6 +1,7 @@
 import { atom } from "recoil";
 
 interface IstashItems {
+    _id:string;
     userId:string;
     type:string;
     title: string;

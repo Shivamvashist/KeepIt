@@ -39,6 +39,7 @@ export function StashItems(){
     const userData = useRecoilValue(authState)
     const userName = userData.user?.username
     const authStatus = userData.isLoggedIn
+    const stashItems = stash.stashItems
 
     useEffect(()=>{
         async function setStashData(){
@@ -55,7 +56,7 @@ export function StashItems(){
         <motion.div 
         initial={{y:[-100],opacity:0}}
         animate={{y:0,opacity:1}}
-        transition={{delay:1, duration:0.6}}
+        transition={{delay:1.4, duration:0.6}}
         className=' w-[80%] flex flex-col gap-10'>
             
             {(authStatus?
@@ -70,11 +71,11 @@ export function StashItems(){
             <Masonry
             breakpointCols={breakpoints}
             className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
+            columnClassName="my-masonry-grid_column "
             >
-                {stash.stashItems?.map((item, index) => (
+                {stashItems?.map((item) => (
                     <StashCard
-                    key={index}
+                    key={item._id}
                     img={typeToImg[item.type]}
                     type={item.type}
                     title={item.title}

@@ -41,7 +41,7 @@ export function Stash(){
         initial={{}}
         animate={{}}
         transition={{}}
-        className=' w-full h-full  bg-radial from-black via-black to-blue-950/70'>
+        className=' w-full h-full  bg-radial from-blue-950/70 via-black to-blue-950/70'>
             
             <motion.div className='min-h-[100vh] min-w-[100vw]'>
                     
