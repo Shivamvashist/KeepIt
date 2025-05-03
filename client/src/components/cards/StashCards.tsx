@@ -12,10 +12,9 @@ export interface Icard {
 export function StashCard({img,type,title,link,description,tags}:Icard){
 
     return <motion.div
-        initial={{}}
-        animate={{}}
-        whileHover={{scale:1.06}}
-        className='text-white border p-8 rounded-4xl border-white/20  bg-white/10 overflow-hidden 
+        whileHover={{scale:1.02}}
+        transition={{ease:"easeInOut"}}
+        className='text-white border p-8  border-white/20 rounded-md bg-white/10 overflow-hidden 
         cursor-pointer hover:brightness-75'>
 
             <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>

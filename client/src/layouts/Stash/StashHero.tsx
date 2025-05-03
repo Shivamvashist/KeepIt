@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logout from '../../assets/icons/logoutSwitch.png'
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { logoutState } from '../../state/logoutMenu';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { API } from '../../utils/axios';
 import { stashState } from '../../state/stash.recoil';
 import { getStash } from '../../utils/getStash';

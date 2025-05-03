@@ -39,7 +39,8 @@ export function StashItems(){
     const userData = useRecoilValue(authState)
     const userName = userData.user?.username
     const authStatus = userData.isLoggedIn
-    const stashItems = stash.stashItems
+    const stashItems = (stash.stashItems || [])
+    
 
     useEffect(()=>{
         async function setStashData(){
@@ -73,7 +74,7 @@ export function StashItems(){
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column "
             >
-                {stashItems?.map((item) => (
+                {[...stashItems].reverse().map((item) => (
                     <StashCard
                     key={item._id}
                     img={typeToImg[item.type]}
