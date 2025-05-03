@@ -26,8 +26,8 @@ export function StashCard({img,type,title,link,description,tags}:Icard){
             <motion.div>
                 <motion.h1 className='font-bold text-2xl '>{title}</motion.h1>
 
-                <h1 className='mb-2 font-semibold text-gray-400 hover:text-blue-400/80' >
-                    <a href={link} target="_blank">
+                <h1 className='mb-2 font-semibold text-gray-400 line-clamp-2 ' >
+                    <a className='hover:text-blue-400/80' href={link} target="_blank">
                         {link}
                     </a>
                 </h1>

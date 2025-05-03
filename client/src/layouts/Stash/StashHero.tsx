@@ -104,15 +104,18 @@ export function StashHero(){
                 animate={{scale:1,opacity:1}}
                 transition={{delay:0.7,duration:0.4,ease:"anticipate"}} 
                 className='relative flex flex-col w-[70%] md:w-[60%] mt-10 md:m-20'>
+            
             <AnimatePresence mode='wait'>
+
                 {(isCreating?
                     
                     <motion.div
-                    initial={{ scale: 1.1, }}
+                    initial={{ scale: 0.8, }}
                     animate={{ scale: 1, }}
                     exit={{scale:1.4}}
                     transition={{ duration: 0.4, ease: 'anticipate' }}
-                    className='bg-black border border-white/20 border-b-blue-900 rounded-4xl p-8 w-full max-w-4xl mx-auto text-white/80 shadow-md'
+                    className='bg-black border border-white/20 border-b-blue-900 rounded-4xl p-8 w-full max-w-4xl mx-auto text-white/80 shadow-md
+                    bg-radial from-blue-950/80 to-black'
                     >
                         <motion.span 
                         initial={{opacity:0,y:[-50]}}
@@ -213,8 +216,9 @@ export function StashHero(){
                         animate={{scale:1}}
                         exit={{scale:1.2}}
                         onFocus={setCreating}
-                        className='border relative bg-black border-white/20 border-b-blue-900
-                        text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white/20 text-center
+                        className='border relative backdrop-blur-3xl
+                        border-white/20 border-b-blue-900
+                        text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white/30 text-center
                         w-full h-28 md:h-40 lg:h-60 rounded-4xl  
                         focus:outline-none focus:border-blue-500 focus:border-b-4 focus:shadow-md transition-all duration-300'
                         placeholder='Whats on not your mind!' 

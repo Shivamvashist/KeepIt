@@ -17,14 +17,16 @@ export function LandingSub() {
           img: tweetSvg,
           type: "Tweet",
           title: "Why developers love TypeScript",
+          link:"https://x.com/ninja_vashist",
           description: "A thread on why TypeScript improves your codebase with type safety and better tooling.",
           tags: ["typescript", "dev", "thread"],
         },
         {
           img: noteSvg,
           type: "Note",
-          title: "Recoil vs Redux - My Notes",
+          title: "🧠 Understanding Recoil",
           description: "Quick notes comparing Recoil and Redux based on my last project with state-heavy logic.",
+          link: "https://www.linkedin.com/posts/shivamvashist_reactjs-recoil-redux-activity-7320721247883993088-ilJ7?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEw8hjQBbUeTHwPq3XzMAE3nAMyjx7Zyc74",
           tags: ["notes", "recoil", "redux"],
         },
         {
