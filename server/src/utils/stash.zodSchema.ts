@@ -2,7 +2,7 @@ import {z} from 'zod';
 
 export const requiredStash = z.object({
     title:z.string(),
-    link:z.string().url().optional(),
+    link:z.string().optional(),
     content:z.string(),
     type:z.enum(['Link','Note','Tweet','Video','Doc','Shorts']),
     tag:z.array(z.string()).optional(),
