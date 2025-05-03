@@ -7,10 +7,6 @@
     font-style: normal;
   }
 
-/* body{
-  background-image: linear-gradient(to bottom left,#000000,#1f0230,#162456,#162456,#1f0230,#000000);
-} */
-/* bg-gradient-to-bl from-black via-[#1f0230] to-blue-950 */
 .my-masonry-grid {
   display: flex;
   margin-left: -1rem; 

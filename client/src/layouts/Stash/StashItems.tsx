@@ -4,6 +4,7 @@ import { getStash } from '../../utils/getStash';
 import { useEffect} from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { stashState } from '../../state/stash.recoil';
+import { Glow, GlowCapture } from '@codaworks/react-glow';
 import Masonry from 'react-masonry-css';
 
 
@@ -40,6 +41,7 @@ export function StashItems(){
     const userName = userData.user?.username
     const authStatus = userData.isLoggedIn
     const stashItems = (stash.stashItems || [])
+    console.log(stashItems)
     
 
     useEffect(()=>{
@@ -69,24 +71,28 @@ export function StashItems(){
 
                 :<NotLoggedIn/>)}
 
-            <Masonry
-            breakpointCols={breakpoints}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column "
-            >
-                {[...stashItems].reverse().map((item) => (
-                    <StashCard
-                    key={item._id}
-                    img={typeToImg[item.type]}
-                    type={item.type}
-                    title={item.title}
-                    link={item.link}
-                    description={item.content}
-                    tags={item.tag}
-                    />
-                ))}
+
+            <GlowCapture>
+                <Masonry
+                    breakpointCols={breakpoints}
+                    className="my-masonry-grid"
+                    columnClassName="my-masonry-grid_column"
+                >
+                    {[...stashItems].reverse().map((item) => (
+                        
+                            <StashCard
+                                img={typeToImg[item.type]}
+                                type={item.type}
+                                title={item.title}
+                                link={item.link}
+                                description={item.content}
+                                tags={item.tag}
+                            />
+                        
+                    ))}
+                </Masonry>
                 
-            </Masonry>
+            </GlowCapture>
             
 
         </motion.div>

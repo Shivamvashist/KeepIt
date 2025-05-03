@@ -1,4 +1,6 @@
+import { Glow } from '@codaworks/react-glow';
 import {motion} from 'framer-motion';
+
 
 export interface Icard {
     img:string;
@@ -11,13 +13,14 @@ export interface Icard {
 
 export function StashCard({img,type,title,link,description,tags}:Icard){
 
-    return <motion.div
-        whileHover={{scale:1.02}}
-        transition={{ease:"easeInOut"}}
-        className='text-white border p-8  border-white/20 rounded-md bg-white/10 overflow-hidden 
-        cursor-pointer hover:brightness-75'>
+    return <Glow >
+            <motion.div
+            // whileHover={{scale:1.02}}
+            transition={{ease:"easeInOut"}}
+            className='text-white border p-8 Glow:bg-color-[#1F51FF] border-white/20 rounded-md bg-white/10 overflow-hidden 
+            cursor-pointer '>
 
-            <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2'>
+            <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2 Glow:'>
                 <img className='h-[32px]' src={img}/>
                 <motion.h1>{type}</motion.h1>
             </motion.div>
@@ -43,4 +46,6 @@ export function StashCard({img,type,title,link,description,tags}:Icard){
             </motion.div>
 
         </motion.div>
+    </Glow> 
+    
 }
