@@ -97,7 +97,12 @@ export function EditStashCard() {
   };
 
   return (
-    <motion.div className="z-30 fixed top-0 min-h-[100vh] min-w-[100vw] flex justify-center items-center backdrop-blur-lg">
+    <motion.div
+    initial={{scale:0.2,y:800,opacity:0}}
+    animate={{scale:1,y:0,opacity:1}}
+    transition={{delay:0.1,duration:0.4,ease:"anticipate"}}
+    exit={{scale:0.2,y:800,opacity:0}}
+    className="z-30 fixed top-0 min-h-[100vh] min-w-[100vw] flex justify-center items-center backdrop-blur-lg">
       <motion.div ref={constraintRef} className="p-40 rounded-xl backdrop-blur-3xl shadow-2xl">
         <motion.div
           drag
@@ -147,11 +152,20 @@ export function EditStashCard() {
             </motion.button>
 
             <div className="flex items-center gap-2 font-semibold text-xl">
-              <h1>{formData?.type}</h1>
+              <motion.h1
+              initial={{y:[-40],opacity:0}}
+              animate={{y:0,opacity:1}}
+              transition={{delay:0.4,duration:0.4,ease:"easeInOut"}}
+              exit={{y:[-40],opacity:0}}
+              >{formData?.type}</motion.h1>
             </div>
 
             <div>
-              <input
+              <motion.input
+              initial={{y:[-40],opacity:0}}
+              animate={{y:0,opacity:1}}
+              transition={{delay:0.5,duration:0.4,ease:"easeInOut"}}
+              exit={{y:[-40],opacity:0}}
                 className="bg-transparent text-white text-2xl font-bold outline-none border-b border-white/20 w-full"
                 value={formData?.title}
                 onChange={(e) => handleChange("title", e.target.value)}
@@ -159,16 +173,24 @@ export function EditStashCard() {
             </div>
 
             {formData?.link && (
-              <a
+              <motion.a
+              initial={{y:[-40],opacity:0}}
+              animate={{y:0,opacity:1}}
+              transition={{delay:0.6,duration:0.4,ease:"easeInOut"}}
+              exit={{y:[-40],opacity:0}}
                 href={formData?.link}
                 target="_blank"
                 className="text-blue-300 hover:underline break-all block"
               >
                 {formData?.link}
-              </a>
+              </motion.a>
             )}
 
-            <textarea
+            <motion.textarea
+            initial={{y:[-40],opacity:0}}
+            animate={{y:0,opacity:1}}
+            transition={{delay:0.7,duration:0.4,ease:"easeInOut"}}
+            exit={{y:[-40],opacity:0}}
               className="bg-transparent text-white mt-2 outline-none w-full whitespace-pre-wrap overflow-auto border border-white/10 rounded-md p-2"
               rows={10}
               value={formData?.content}
@@ -176,7 +198,12 @@ export function EditStashCard() {
             />
 
             {/* Tags */}
-            <div className="flex flex-wrap items-center gap-2 mt-4">
+            <motion.div 
+            initial={{y:[-40],opacity:0}}
+            animate={{y:0,opacity:1}}
+            transition={{delay:0.8,duration:0.4,ease:"easeInOut"}}
+            exit={{y:[-40],opacity:0}}
+            className="flex flex-wrap items-center gap-2 mt-4">
               {formData?.tag?.map((tag: string, i: number) => (
                 <div
                   key={i}
@@ -187,11 +214,11 @@ export function EditStashCard() {
                     onClick={() => handleTagDelete(tag)}
                     className="text-red-400 text-sm"
                   >
-                    ×
+                    <img className="h-4" src={closeIcon}/>
                   </button>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Tag Input */}
             <div className="mt-2 flex items-center gap-2">
@@ -214,10 +241,15 @@ export function EditStashCard() {
                         Add
                     </button>
             </div>
-                    <div className="text-sm text-gray-400 mt-4">
+                    <motion.div 
+                    initial={{y:[-40],opacity:0}}
+                    animate={{y:0,opacity:1}}
+                    transition={{delay:0.9,duration:0.4,ease:"easeInOut"}}
+                    exit={{y:[-40],opacity:0}}
+                    className="text-sm text-gray-400 mt-4">
                     <p>Created: {new Date(cardItems?.createdAt).toLocaleString()}</p>
                     <p>Updated: {new Date(cardItems?.updatedAt).toLocaleString()}</p>
-                    </div>
+                    </motion.div>
 
           </motion.div>
           <span className="text-white/40 text-center">DRAG ME!</span>
