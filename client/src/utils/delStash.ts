@@ -1,5 +1,5 @@
 import { API } from "./axios";
 
-export function delStash(){
-    
+export async function delStash(id:string){
+    await API.delete(`/stash/deleteStashItem/${id}`)
 }
