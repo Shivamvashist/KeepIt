@@ -24,3 +24,5 @@ learn.txt
 *.njsproj
 *.sln
 *.sw?
+
+splash-cursor.tsx
