@@ -1,13 +1,14 @@
 import { atom } from "recoil";
 
-interface IstashItems {
+export interface IstashItems {
     _id:string;
-    userId:string;
     type:string;
     title: string;
     link?: string;
     content: string;
     tag?:string[];
+    createdAt:string;
+    updatedAt:string;
 }
 
 export const stashState = atom({

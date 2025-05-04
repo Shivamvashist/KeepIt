@@ -81,12 +81,15 @@ export function StashItems(){
                     {[...stashItems].reverse().map((item) => (
                         
                             <StashCard
+                                _id={item._id}
+                                createdAt={item.createdAt}
+                                updatedAt={item.updatedAt}
                                 img={typeToImg[item.type]}
                                 type={item.type}
                                 title={item.title}
                                 link={item.link}
-                                description={item.content}
-                                tags={item.tag}
+                                content={item.content}
+                                tag={item.tag}
                             />
                         
                     ))}
