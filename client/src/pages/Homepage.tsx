@@ -10,7 +10,7 @@ export function HomePage(){
 
     const logoutMenuStatus = useRecoilValue(logoutState);
 
-    return <div className='relative bg-[linear-gradient(to_bottom_left,_#000000,_#1f0230,_#162456,_#162456,_#1f0230,_#000000)]'>
+    return <div className='relative h-full bg-[linear-gradient(to_bottom_left,_#000000,_#1f0230,_#162456,_#162456,_#1f0230,_#000000)]'>
         
         <Header/>
         <LandingHero/>

@@ -7,8 +7,8 @@ import { HeroHead } from "./HeroHead";
 
 export function LandingHero(){
 
-    return <div className='w-screen h-screen flex justify-center pt-20'>
-        <motion.div className='w-[90%] h-[85%] flex flex-row 
+    return <div className='w-screen h-screen flex justify-center pt-8 lg:pt-20'>
+        <motion.div className='w-[90%] lg:h-[85%] flex flex-col lg:flex-row 
         rounded-4xl justify-between overflow-hidden 
         bg-gradient-to-br from-black via-[#1f0230] to-blue-950
         drop-shadow-2xl relative '>
@@ -32,7 +32,8 @@ export function LandingHero(){
                 initial={{y:[-60],opacity:0}}
                 animate={{y:0,opacity:1}}
                 transition={{duration:0.3,delay:0.4}}
-                className='text-9xl font-bold font-[MoonWalk] text-gray-200' 
+                className='text-6xl lg:text-6xl xl:text-9xl font-bold font-[MoonWalk] text-gray-200
+                mt-40 lg:mt-0' 
                 >Keep-It
                 </motion.span>
 
@@ -40,7 +41,7 @@ export function LandingHero(){
                 initial={{opacity:0}}
                 animate={{opacity:1}}
                 transition={{delay:0.6}}
-                className='text-3xl mb-12 font-bold text-gray-200/80 '>
+                className='text-2xl xl:text-3xl mb-12 font-bold text-gray-200/80 text-center '>
                 Because your brain wasn't built for bookmarks.
                 </motion.span>
                 <motion.div
@@ -64,7 +65,7 @@ export function LandingHero(){
                 initial={{filter: "drop-shadow(0px 0px 10px rgba(0, 255, 255, 0.3))",y:[10]}}
                 animate={{filter: "drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.4))",y:0}} 
                 transition={{repeat:Infinity,duration:1.2,repeatType:"reverse",ease:"easeInOut"}}
-                className='h-[80%] ' src={homeGirl}/>
+                className='lg:h-[80%] ' src={homeGirl}/>
             </motion.div>
             
         </motion.div>
