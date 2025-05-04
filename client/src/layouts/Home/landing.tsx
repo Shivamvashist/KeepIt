@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'
 import { HoverButton } from '../../components/ui/HoverButton'
 import homeGirl from '../../assets/imgs/homeGirl.png'
+import NinjaVashist from '../../assets/imgs/NinjaVashist.png'
 import { HeroHead } from "./HeroHead";
 
 export function LandingHero(){
@@ -13,6 +14,17 @@ export function LandingHero(){
         drop-shadow-2xl relative '>
 
             <HeroHead/>
+            
+            <motion.div className="absolute top-6 left-10 group  ">
+                <a href="https://www.linkedin.com/in/shivamvashist/" target="_blank">
+                    <motion.button>
+                        <motion.img alt="Connect with the Dev!" className="h-[60px]" src={NinjaVashist}/>
+                    </motion.button>
+                </a>
+                <span className="absolute top-16 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap z-10">
+                    Connect with me!
+                </span>
+            </motion.div>
 
             <motion.div className='flex flex-col justify-center items-center
             w-[70%] ml-16 mt-1'>

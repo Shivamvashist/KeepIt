@@ -103,7 +103,7 @@ export function EditStashCard() {
     transition={{delay:0.1,duration:0.4,ease:"anticipate"}}
     exit={{scale:0.2,y:800,opacity:0}}
     className="z-30 fixed top-0 min-h-[100vh] min-w-[100vw] flex justify-center items-center backdrop-blur-lg">
-      <motion.div ref={constraintRef} className="p-40 rounded-xl backdrop-blur-3xl shadow-2xl">
+      <motion.div ref={constraintRef} className="p-10 md:p-40 rounded-xl backdrop-blur-3xl shadow-2xl">
         <motion.div
           drag
           whileDrag={{ rotate: 5, scale: 0.96 }}
