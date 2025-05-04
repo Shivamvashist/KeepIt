@@ -1,5 +1,7 @@
 import { Glow } from '@codaworks/react-glow';
 import {motion} from 'framer-motion';
+import { useSetRecoilState } from 'recoil';
+import { editStashState } from '../../state/editStash.recoil';
 
 
 export interface Icard {
@@ -13,12 +15,14 @@ export interface Icard {
 
 export function StashCard({img,type,title,link,description,tags}:Icard){
 
-    return <Glow >
-            <motion.div
-            // whileHover={{scale:1.02}}
+    const setEditStash = useSetRecoilState(editStashState);
+
+    return <motion.div
+            whileHover={{scale:1.02}}
             transition={{ease:"easeInOut"}}
+            onClick={()=>{setEditStash(true)}}
             className='text-white border p-8 Glow:bg-color-[#1F51FF] border-white/20 rounded-md bg-white/10 overflow-hidden 
-            cursor-pointer '>
+            cursor-pointer hover:brightness-75 '>
 
             <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2 Glow:'>
                 <img className='h-[32px]' src={img}/>
@@ -45,7 +49,6 @@ export function StashCard({img,type,title,link,description,tags}:Icard){
                 ))}
             </motion.div>
 
-        </motion.div>
-    </Glow> 
+        </motion.div> 
     
 }

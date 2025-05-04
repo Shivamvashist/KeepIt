@@ -68,7 +68,7 @@ export function LandingSub() {
 
     </motion.div>
 
-    <motion.div className='w-[50%] mr-10'>
+    <motion.div className='max-w-[50%] mr-10'>
         <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 50 }}

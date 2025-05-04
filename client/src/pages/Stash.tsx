@@ -9,11 +9,14 @@ import { authState } from '../state/auth.recoil';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { editStashState } from '../state/editStash.recoil';
+import { EditStashCard } from '../components/cards/editStashCard';
 
 
 export function Stash(){
     
     const logoutMenuStatus = useRecoilValue(logoutState);
+    const editStashStatus = useRecoilValue(editStashState);
     const auth = useRecoilValue(authState);
     const navigate = useNavigate()
 
@@ -48,6 +51,10 @@ export function Stash(){
                 <StashHero/>
                 
                 <StashItems/>
+
+                <AnimatePresence mode='wait'>
+                    {editStashStatus ? <EditStashCard/> : null}
+                </AnimatePresence>
 
                 <AnimatePresence mode='wait'>
                     {logoutMenuStatus ? <LogoutMenu/> : null}

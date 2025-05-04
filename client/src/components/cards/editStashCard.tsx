@@ -1,42 +1,38 @@
-import { motion } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 import { useRecoilValue } from "recoil"
 import { stashState } from "../../state/stash.recoil"
+import { useRef } from "react"
 
-const stash = useRecoilValue(stashState);
-const stashItem = stash.stashItems?.find() 
+
+// const stash = useRecoilValue(stashState); 
 
 export function EditStashCard(){
 
-    return <motion.div
-        transition={{ease:"easeInOut"}}
-        className='text-white border p-8 Glow:bg-color-[#1F51FF] border-white/20 rounded-md bg-white/10 overflow-hidden 
-        cursor-pointer '>
+    const constraintRef = useRef(null);
+    const controls = useAnimation();
 
-        <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2 Glow:'>
-            <img className='h-[32px]' src={img}/>
-            <motion.h1>{type}</motion.h1>
+    return <motion.div 
+    
+    className=" z-30 fixed top-0  h-[100vh] w-[100vw] border border-amber-100 flex justify-center items-center">
+
+        <motion.div ref={constraintRef} className="p-40">
+
+            <motion.div 
+            drag
+            whileDrag={{rotate:5}}
+            dragConstraints={constraintRef}
+            onDragEnd={() => {
+                controls.start({ x: 0, y: 0, transition: { type: "spring", stiffness: 300 } });
+              }}
+            className="w-20 h-20 bg-blue-500 rounded-md absolute"
+            dragElastic={0.5}
+            animate={controls}
+            >
+
+            </motion.div>
+
         </motion.div>
-
-        <motion.div>
-            <motion.h1 className='font-bold text-2xl '>{title}</motion.h1>
-
-            <h1 className='mb-2 font-semibold text-gray-400 line-clamp-2 ' >
-                <a className='hover:text-blue-400/80' href={link} target="_blank">
-                    {link}
-                </a>
-            </h1>
-            
-            <span className='font-medium line-clamp-6'>{description}</span>
-        </motion.div>
-
-        <motion.div className='flex flex-row items-center gap-2 font-semibold mt-4'>
-            {tags?.map((tag,index)=>(
-                <motion.div className='flex-wrap  '>
-                    <motion.h1 key={index} className='border border-white/20 bg-amber-50/10 rounded-lg py-1 px-2 '>{tag}</motion.h1>
-                </motion.div>
-            ))}
-        </motion.div>
-
+        
     </motion.div>
  
 }
