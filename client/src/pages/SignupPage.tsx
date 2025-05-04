@@ -167,7 +167,7 @@ export function SignUp(){
             initial={{opacity:0,x:[40]}}
             animate={{opacity:1,x:0}} 
             transition={{delay:0.4,duration:0.4}}
-            className='h-[500px] w-[500px]'
+            className=' h-0 w-0 md:h-[500px] md:w-[500px] '
             >
                 <motion.img 
                 initial={{x:0,y:0 }}
