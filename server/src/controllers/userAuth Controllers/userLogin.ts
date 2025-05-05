@@ -36,7 +36,7 @@ export async function userLogin( req:Request<{},{},SigninBody>, res:Response ){
             return res.status(401).json("Incorrect Password!")
         }
         if(verifyPass){
-            const token = jwt.sign({username:findUser.username,userId:findUser._id},JWT_SECRET_USER);
+            const token = jwt.sign({username:findUser.username,userId:findUser._id},JWT_SECRET_USER as jwt.Secret);
             return res.status(200)
             .cookie("token",token,{httpOnly: true,maxAge:3600000000})
             .json({msg:"Successfully Signed in!"});
