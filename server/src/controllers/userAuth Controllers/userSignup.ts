@@ -33,7 +33,7 @@ export async function userSignup(req:Request<{},{},SignupBody>,res:Response){
             password:hashedPass
         })
 
-        return res.status(201).json("Signed Up!");
+        return res.status(201).json("Signed Up!",);
         
         // NO NEED as if it fails it'll automatically go to catch block!
         // if (user){

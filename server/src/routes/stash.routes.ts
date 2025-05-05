@@ -8,7 +8,7 @@ import { delStashItem } from "../controllers/stashRouter Controllers/delStashIte
 
 export const stashRouter = Router();
 
-stashRouter.post('/createStash',userAuth,createStash);
-stashRouter.get('/stashItems',userAuth,getStashItems);
-stashRouter.patch(('/editStashItem/:id'),userAuth,editStashItem);
-stashRouter.delete(('/deleteStashItem/:id'),userAuth,delStashItem);
+stashRouter.post('/createStash', userAuth as any, createStash as any);
+stashRouter.get('/stashItems', userAuth as any, getStashItems as any);
+stashRouter.patch('/editStashItem/:id', userAuth as any, editStashItem as any);
+stashRouter.delete('/deleteStashItem/:id', userAuth as any, delStashItem as any);
