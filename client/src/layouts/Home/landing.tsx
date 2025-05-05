@@ -28,7 +28,7 @@ export function LandingHero(){
             </motion.div>
 
             <motion.div className='flex flex-col justify-center items-center
-            w-[70%] ml-16 mt-1'>
+            lg:w-[50%] ml-16 mt-1'>
                 <motion.span
                 initial={{y:[-60],opacity:0}}
                 animate={{y:0,opacity:1}}
