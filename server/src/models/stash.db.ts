@@ -22,8 +22,8 @@ const stashSchema = new Schema<IStashDocument>({
         required:true,
     },
     type:{
-        type:String,
-        enum:Object.values(stashTypes), // Object.values(a Obj) => gives array of the values stored in obj.
+        type: String,
+        enum: Object.values(stashTypes).filter(type => typeof type === 'string'),
         required:true
     },
     tag:[{

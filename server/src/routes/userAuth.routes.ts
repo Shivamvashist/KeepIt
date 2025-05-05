@@ -7,7 +7,7 @@ import { userAuth } from '../middlewares/auth.middleware';
 
 export const userAuthRouter = Router();
 
-userAuthRouter.post('/signup',userSignup);
-userAuthRouter.post('/login',userLogin);
-userAuthRouter.get('/user/me',userAuth,userDetails);
-userAuthRouter.post('/logout',userAuth,logOut);
+userAuthRouter.post('/signup', userSignup as any);
+userAuthRouter.post('/login', userLogin as any);
+userAuthRouter.get('/user/me', userAuth as any, userDetails as any);
+userAuthRouter.post('/logout', userAuth as any, logOut as any);
