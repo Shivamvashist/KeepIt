@@ -28,10 +28,10 @@ export function StashCard({_id,createdAt,updatedAt,img,type,title,link,content,t
 
     return <motion.div
             whileHover={{scale:1.02}}
-            transition={{ease:"easeInOut"}}
+            transition={{ease:"easeInOut",duration:0.1}}
             onClick={handleClick}
             className='text-white border p-8 Glow:bg-color-[#1F51FF] border-white/20 rounded-md bg-white/10 overflow-hidden 
-            cursor-pointer hover:brightness-75 '>
+            cursor-pointer hover:brightness-75 hover:border-[#1F51FF] transition-all duration-300'>
 
             <motion.div className='flex flex-row items-center gap-2 font-semibold text-xl mb-2 Glow:'>
                 <img className='h-[32px]' src={img}/>
