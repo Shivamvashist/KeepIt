@@ -1,5 +1,5 @@
 # KeepIt
-Find it when you need it. KeepIt.
+Find it when you need it, "KeepIt"
 here - https://keepit-mauve.vercel.app/
 
 Frontend: React, TypeScript, TailwindCSS, Recoil, Framer Motion, React Hot Toast, React Masonry CSS
