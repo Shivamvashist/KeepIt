@@ -92,7 +92,7 @@ In the age of endless tabs and scattered knowledge, it’s easy to lose track of
 - [ ] Add search and filtering by tag/content type  
 - [ ] Public profile pages for users’ stashes  
 - [ ] Browser extension to save links/tweets directly  
-- [ ] GitHub integration for developers
+- [ ] Web extension to allow users to store items in stash remotely
 
 ---
 
@@ -100,7 +100,7 @@ In the age of endless tabs and scattered knowledge, it’s easy to lose track of
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/keepit.git
+git clone https://github.com/Shivamvashist/KeepIt
 cd keepit
 ```
 
@@ -123,5 +123,4 @@ npm run dev
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
-```
 ```
