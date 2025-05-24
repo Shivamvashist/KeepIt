@@ -67,7 +67,7 @@ export function StashHero(){
         setIsCreating(true)
     }
 
-    return <motion.div className='flex justify-center items-center pt-40'>
+    return <motion.div className='flex justify-center items-center pt-40 overflow-x-hidden'>
 
         
         

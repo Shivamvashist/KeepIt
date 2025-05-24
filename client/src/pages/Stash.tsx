@@ -39,14 +39,14 @@ export function Stash(){
         
       });
 
-    return <div className='bg-black'>
+    return <div className='bg-black overflow-x-hidden'>
         <motion.div 
         initial={{}}
         animate={{}}
         transition={{}}
         className=' w-full h-full  bg-radial from-blue-950/70 via-black to-blue-950/70'>
             
-            <motion.div className='min-h-[100vh] min-w-[100vw]'>
+            <motion.div className='min-h-[100vh] min-w-[100vw]' >
                     
                 <StashHero/>
                 
