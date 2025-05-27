@@ -54,9 +54,12 @@ export function StashHero(){
               })
               const newStash =  await getStash()
               setStash({...newStash,isLoading:false,isEmpty:false})
+              toast.loading("Creating Stash Item!",{position:"bottom-right",duration:500})
+              setIsCreating(false)
               setTimeout(()=>{
-                setIsCreating(false)
-              },1000)
+                
+                toast.success("Stash Item Created!",{position:"bottom-right"})
+              },500)
         } catch (error) {
             toast.error("Missing or Invalid Syntex",{position:"bottom-right"})
         }
