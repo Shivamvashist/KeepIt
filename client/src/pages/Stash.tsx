@@ -24,20 +24,19 @@ export function Stash(){
       if(!auth.loading){
         if (!auth.isLoggedIn) {
           const id = toast.loading("Redirecting...", {
-            duration: 2000,
+            duration: 900,
             position: "bottom-right",
           });
-      
+
           const redirect = setTimeout(() => {
             toast.dismiss(id);
             navigate("/");
-          }, 2000);
+          }, 1000);
       
           return () => clearTimeout(redirect);
         }
       }
-        
-      });
+    });
 
     return <div className='bg-black overflow-x-hidden'>
         <motion.div 

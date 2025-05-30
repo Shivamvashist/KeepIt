@@ -5,8 +5,16 @@ import homeGirl from '../../assets/imgs/homeGirl.png'
 // import NinjaVashist from '../../assets/imgs/NinjaVashist.png'
 import logo from '../../assets/imgs/keepItLogo.png'
 import { HeroHead } from "./HeroHead";
+import { useRecoilValue } from "recoil";
+import { authState } from "../../state/auth.recoil";
+
+
 
 export function LandingHero(){
+
+    const userAuthState = useRecoilValue(authState);
+    const isLoggedIn = userAuthState.isLoggedIn;
+
 
     return <div className='w-screen h-screen flex justify-center pt-8 lg:pt-20'>
         <motion.div className='w-[90%] lg:h-[85%] flex flex-col lg:flex-row 
@@ -51,7 +59,9 @@ export function LandingHero(){
                 exit={{opacity:0,scale:0,y:30}}
                 transition={{duration:0.3,delay:0.6}}
                 >
-                <Link to={'/signup'}><HoverButton val="Start Stashing"/></Link>
+
+                <Link to={(isLoggedIn ? '/stash' : '/login')}><HoverButton val="Start Stashing"/></Link>
+
                 </motion.div>
                 
                 
